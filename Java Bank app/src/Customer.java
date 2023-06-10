@@ -12,14 +12,27 @@ public class Customer {
 		this.lastName = lastName;
 		this.ssn = ssn;
 		this.account = account;
-	}
+	} 
 	
 	@Override
 	public String toString() {
 		return "\nCustomer Information\n"
-				+ "First Name: " + firstName
-				+ "Last Name: " + lastName
-				+ "SSN: " + ssn
+				+ "First Name: " + firstName + "\n"
+				+ "Last Name: " + lastName + "\n"
+				+ "SSN: " + ssn + "\n"
 				+ account;
+	}
+	
+	public String basicInfo() {
+		return "\nCustomer Information: \n"
+				+ "First Name: " + firstName + "\n"
+				+ "Last Name: " + lastName + "\n"
+				+ "SSN: " + ssn + "\n"
+				+ "Account number: " + account.getAccountNumber() + "\n";
+	}
+	
+	
+	Account getAccount() {
+		return account;
 	}
 }

@@ -49,8 +49,8 @@ public class Account {
 	
 	public void deposit(double amount) {
 		
-		if(amount < 0) {
-			System.out.println("You cant deposit negative amount of money.");
+		if(amount <= 0) {
+			System.out.println("You cant deposit this amount of money.");
 		}
 		
 		// here we are getting amount compiled with interest rate
