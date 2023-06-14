@@ -5,14 +5,14 @@ public class Savings extends Account{
 		Savings(double initialDeposit){
 			super();
 			this.setBalance(initialDeposit);
-			this.checkIntereset();
+			this.checkIntereset(0);
 		}
 		
 	@Override
 	public String toString() {
 		return "Account type: " + accountType + "\n" +
 				"Balance: " + this.getBalance() + "\n" +
-				"Interest rate: " + this.getInterest()+
-				"                                                     Account number: " + this.getAccountNumber();
+				"Interest rate: " + this.getInterest() + "\n" +
+				"Account number: " + this.getAccountNumber();
 	}
 }

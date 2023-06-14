@@ -67,11 +67,7 @@ public class Menu {
 
 	}
 
-	private void listBalance() {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	private void createAnAccount() {
 		String firstName, lastName, ssn, accountType = "";
 		double initialDeposit = 0;
@@ -137,9 +133,24 @@ public class Menu {
 		Customer customer = new Customer(firstName, lastName, ssn, account);
 		bank.addCustomer(customer);
 	}
+	
+	// manipulations with money
 
 	private void makeA_Withdraw() {
-		// TODO Auto-generated method stub
+		int account = selectAccount();
+		if (account >= 0) {
+	
+			System.out.print("Enter amount of money you'd like to withdraw: ");
+			double amount = 0;
+			try {
+				amount = Double.parseDouble(scanner.nextLine());
+	
+			} catch (NumberFormatException e) {
+				amount = 0;
+			}
+	
+			bank.getCustomer(account).getAccount().withdraw(amount);
+		}
 
 	}
 
@@ -160,11 +171,19 @@ public class Menu {
 		}
 	}
 
+	private void listBalance() {
+		int account = selectAccount();
+		if (account >= 0) {
+			System.out.println(bank.getCustomer(account).getAccount());
+		}
+	}
+
+	
 	private int selectAccount() {
 		ArrayList<Customer> customers = bank.getCustomers();
 		
 		if (customers.size() <= 0) {
-			System.out.println("You dont have customers in your bank");
+			System.out.println("You dont have customers in your bank.");
 			return -1;
 		}
 
@@ -177,9 +196,17 @@ public class Menu {
 		System.out.print("Enter your selection: ");
 		try {
 			account = Integer.parseInt(scanner.nextLine()) - 1;
+			
+			
+			if(account < 0 || account > customers.size()) {
+				System.out.println("Invalid account selection.");
+				account = -1;
+			}
 		} catch (NumberFormatException e) {
+			System.out.println("Something went wrong.");
 			account = -1;
 		}
+		
 		return account;
 	}
 
@@ -196,10 +223,9 @@ public class Menu {
 
 			}
 			if (choice < 0 || choice > 4) {
-				System.out.println("Choice is out of range. Chose again.");
+				System.out.println("Choise is out of range. Chose again.");
 			}
 		} while (choice < 0 || choice > 4);
 		return choice;
 	}
-
 }

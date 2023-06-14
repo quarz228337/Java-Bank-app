@@ -24,7 +24,7 @@ public class Customer {
 	}
 	
 	public String basicInfo() {
-		return "\nCustomer Information: \n"
+		return  "\n"
 				+ "First Name: " + firstName + "\n"
 				+ "Last Name: " + lastName + "\n"
 				+ "SSN: " + ssn + "\n"

@@ -5,7 +5,7 @@ public class Checking extends Account {
 		Checking(double initialDeposit){
 			super();
 			this.setBalance(initialDeposit);
-			this.checkIntereset();
+			this.checkIntereset(0);
 		}
 		
 	@Override
@@ -13,6 +13,6 @@ public class Checking extends Account {
 		return "Account type: " + accountType + "\n" +
 				"Balance: " + this.getBalance() + "\n" +
 				"Interest rate: " + this.getInterest()+
-				"                                         Account number: " + this.getAccountNumber();
+				"Account number: " + this.getAccountNumber();
 	}
 }

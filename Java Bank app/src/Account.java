@@ -1,3 +1,4 @@
+import java.lang.Math;
 
 public class Account {
 	private double balance;
@@ -41,10 +42,11 @@ public class Account {
 			System.out.println("You have deficient balance.");
 			return;
 		}
-		checkIntereset();
+		
 		balance -= amount + 5;
+		checkIntereset(0);
 		System.out.println("You have withdrawn " + amount + 5 + "$. (5$ fee)");
-		System.out.println("Your current ballance is: " + balance + "$.");
+		System.out.println("Your current balance is: " + balance + "$.");
 	}
 	
 	public void deposit(double amount) {
@@ -54,7 +56,7 @@ public class Account {
 		}
 		
 		// here we are getting amount compiled with interest rate
-		checkIntereset();
+		checkIntereset(amount);
 		amount = amount + amount * interest;
 		balance += amount;
 		System.out.println("You have deposited " + amount + " with an interest rate of "+ interest*100 + "%.");
@@ -63,9 +65,9 @@ public class Account {
 
 
 
-	public void checkIntereset() {
+	public void checkIntereset(double amount) {
 		
-		if (balance > 10000) {
+		if (balance + amount > 10000) {
 			interest = 0.05;
 		}else  {
 			interest = 0.02;
