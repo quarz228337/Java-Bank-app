@@ -12,7 +12,7 @@ public class Checking extends Account {
 	public String toString() {
 		return "Account type: " + accountType + "\n" +
 				"Balance: " + this.getBalance() + "\n" +
-				"Interest rate: " + this.getInterest()+
+				"Interest rate: " + this.getInterest() + "\n" +
 				"Account number: " + this.getAccountNumber();
 	}
 }

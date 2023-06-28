@@ -1,10 +1,9 @@
-import java.lang.Math;
 
 public class Account {
 	private double balance;
 	private double interest;
 	private int accountNumber;
-	private static int numberOfAccounts = 1000000;
+	private static int numberOfAccounts = 1;
 	
 	Account(){
 		accountNumber = numberOfAccounts++;
@@ -59,7 +58,7 @@ public class Account {
 		checkIntereset(amount);
 		amount = amount + amount * interest;
 		balance += amount;
-		System.out.println("You have deposited " + amount + " with an interest rate of "+ interest*100 + "%.");
+		System.out.println("You have deposited " + amount + "$ with an interest rate of "+ interest*100 + "%.");
 		System.out.println("Your current balance is: " + balance + "$.");
 	}
 
